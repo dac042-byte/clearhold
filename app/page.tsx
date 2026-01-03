@@ -212,27 +212,18 @@ function HomePage() {
         </div>
       </header>
 
-      {/* Crisis Support Banner */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 py-2">
-          <div className="flex items-center justify-center gap-2 text-xs text-gray-600">
-            <span>National Suicide Hotline:</span>
-            <a
-              href="tel:988"
-              className="text-[#4DB8C4] hover:text-[#3A8F99] font-medium"
-            >
-              988
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
         {/* Input Step */}
         {step === 'input' && (
           <div className="card max-w-2xl mx-auto">
-            <h2 className="text-xl font-semibold mb-4">What thought is looping?</h2>
+            <h2 className="text-xl font-semibold mb-2">What thought is looping?</h2>
+            <p className="text-xs text-gray-500 mb-4">
+              National Suicide Hotline:{' '}
+              <a href="tel:988" className="text-[#4DB8C4] hover:text-[#3A8F99] font-medium">
+                988
+              </a>
+            </p>
             <p className="text-gray-600 mb-6">
               Enter the thought you'd like to examine with clarity
             </p>
