@@ -375,6 +375,54 @@ function HomePage() {
               <p className="text-gray-700">{aiResponse.grounded_reframe}</p>
             </div>
 
+            {/* Crisis Support Section */}
+            <div className="card border-2 border-[#FFD166] bg-[#FFFEF5]">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 mt-1">
+                  <svg
+                    className="w-6 h-6 text-[#4DB8C4]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-gray-800 mb-3 leading-relaxed">
+                    If you are feeling suicidal or committing self-harm, <strong>PLEASE</strong> contact this number. Your life and well-being is worth fighting for.
+                  </p>
+                  <div className="space-y-2">
+                    <a
+                      href="tel:988"
+                      className="flex items-center gap-2 text-[#4DB8C4] hover:text-[#3A8F99] font-semibold text-lg"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                        />
+                      </svg>
+                      <span>988 - Suicide & Crisis Lifeline</span>
+                    </a>
+                    <p className="text-xs text-gray-600">Available 24/7 - Free and confidential support</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="card bg-[#E0F7F9]">
               <p className="text-xs text-gray-600 italic">
                 Not medical advice. Not for diagnosis or treatment.
