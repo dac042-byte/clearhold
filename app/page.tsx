@@ -172,9 +172,9 @@ function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#C5F5F0]">
+    <div className="min-h-screen bg-[#E0F7F9]">
       {/* Header */}
-      <header className="bg-[#92E5F5] shadow-sm">
+      <header className="bg-[#B4E6EB] shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img
@@ -197,7 +197,7 @@ function HomePage() {
             {profile?.subscription_status !== 'active' && (
               <Link
                 href="/subscribe"
-                className="text-sm bg-[#7570D8] text-white px-3 py-1.5 rounded-lg hover:opacity-90"
+                className="text-sm bg-[#4DB8C4] text-white px-3 py-1.5 rounded-lg hover:opacity-90"
               >
                 Upgrade
               </Link>
@@ -247,7 +247,7 @@ function HomePage() {
                 <button
                   key={type}
                   onClick={() => handleClassification(type)}
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#58B0E8] hover:bg-[#C5F5F0] text-left transition-colors"
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#4DB8C4] hover:bg-[#E0F7F9] text-left transition-colors"
                 >
                   <div className="font-medium">{type}</div>
                   <div className="text-sm text-gray-600 mt-1">
@@ -283,7 +283,7 @@ function HomePage() {
                   }
                   className={`p-3 border-2 rounded-lg text-left transition-colors ${
                     selectedDistortions.includes(distortion)
-                      ? 'border-[#58B0E8] bg-[#C5F5F0]'
+                      ? 'border-[#4DB8C4] bg-[#E0F7F9]'
                       : 'border-gray-200 hover:border-gray-300'
                   } disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
@@ -322,7 +322,7 @@ function HomePage() {
                   key={choice}
                   onClick={() => handleEvidenceSubmit(choice)}
                   disabled={loading}
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#58B0E8] hover:bg-[#C5F5F0] text-left transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#4DB8C4] hover:bg-[#E0F7F9] text-left transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <div className="font-medium">{choice}</div>
                 </button>
@@ -375,7 +375,7 @@ function HomePage() {
               <p className="text-gray-700">{aiResponse.grounded_reframe}</p>
             </div>
 
-            <div className="card bg-[#C5F5F0]">
+            <div className="card bg-[#E0F7F9]">
               <p className="text-xs text-gray-600 italic">
                 Not medical advice. Not for diagnosis or treatment.
               </p>
