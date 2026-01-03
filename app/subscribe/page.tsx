@@ -107,9 +107,11 @@ function SubscribePage() {
             onClick={() => router.push('/')}
             className="flex items-center gap-3 cursor-pointer"
           >
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">C</span>
-            </div>
+            <img
+              src="/favicon.ico"
+              alt="Clearhold logo"
+              className="w-8 h-8"
+            />
             <h1 className="text-2xl font-bold text-gray-900">
               Clearhold
             </h1>
