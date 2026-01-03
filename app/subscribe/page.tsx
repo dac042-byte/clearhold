@@ -99,9 +99,9 @@ function SubscribePage() {
   const isSubscribed = profile?.subscription_status === 'active'
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-sky-50">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-sky-100 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <div
             onClick={() => router.push('/')}

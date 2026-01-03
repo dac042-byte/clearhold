@@ -172,9 +172,9 @@ function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-sky-50">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-sky-100 shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img
@@ -197,7 +197,7 @@ function HomePage() {
             {profile?.subscription_status !== 'active' && (
               <Link
                 href="/subscribe"
-                className="text-sm bg-sky-600 text-white px-3 py-1.5 rounded-lg hover:bg-sky-700"
+                className="text-sm bg-emerald-500 text-white px-3 py-1.5 rounded-lg hover:bg-emerald-600"
               >
                 Upgrade
               </Link>
@@ -375,7 +375,7 @@ function HomePage() {
               <p className="text-gray-700">{aiResponse.grounded_reframe}</p>
             </div>
 
-            <div className="card bg-gray-50">
+            <div className="card bg-sky-50">
               <p className="text-xs text-gray-600 italic">
                 Not medical advice. Not for diagnosis or treatment.
               </p>

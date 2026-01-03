@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 249, 250, 251;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 224, 242, 254;
+  --background-end-rgb: 186, 230, 253;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      transparent,
+      rgb(var(--background-start-rgb)),
       rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    );
+  min-height: 100vh;
 }
 
 .btn {
@@ -23,7 +23,7 @@ body {
 }
 
 .btn-primary {
-  @apply bg-sky-500 text-white hover:bg-sky-600 disabled:bg-sky-300 disabled:cursor-not-allowed;
+  @apply bg-emerald-500 text-white hover:bg-emerald-600 disabled:bg-emerald-300 disabled:cursor-not-allowed;
 }
 
 .btn-secondary {
@@ -31,11 +31,11 @@ body {
 }
 
 .input {
-  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none;
+  @apply w-full px-4 py-2 border border-sky-300 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-transparent outline-none bg-white;
 }
 
 .card {
-  @apply bg-white rounded-lg shadow-md p-6;
+  @apply bg-white rounded-lg shadow-md p-6 border border-sky-200;
 }
 
 .label {
