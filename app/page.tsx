@@ -197,7 +197,7 @@ function HomePage() {
             {profile?.subscription_status !== 'active' && (
               <Link
                 href="/subscribe"
-                className="text-sm bg-emerald-500 text-white px-3 py-1.5 rounded-lg hover:bg-emerald-600"
+                className="text-sm bg-indigo-600 text-white px-3 py-1.5 rounded-lg hover:bg-indigo-700"
               >
                 Upgrade
               </Link>
