@@ -197,7 +197,7 @@ function HomePage() {
             {profile?.subscription_status !== 'active' && (
               <Link
                 href="/subscribe"
-                className="text-sm bg-blue-600 text-white px-3 py-1.5 rounded-lg hover:bg-blue-700"
+                className="text-sm bg-sky-600 text-white px-3 py-1.5 rounded-lg hover:bg-sky-700"
               >
                 Upgrade
               </Link>
@@ -247,7 +247,7 @@ function HomePage() {
                 <button
                   key={type}
                   onClick={() => handleClassification(type)}
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-left transition-colors"
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-sky-500 hover:bg-sky-50 text-left transition-colors"
                 >
                   <div className="font-medium">{type}</div>
                   <div className="text-sm text-gray-600 mt-1">
@@ -283,7 +283,7 @@ function HomePage() {
                   }
                   className={`p-3 border-2 rounded-lg text-left transition-colors ${
                     selectedDistortions.includes(distortion)
-                      ? 'border-blue-500 bg-blue-50'
+                      ? 'border-sky-500 bg-sky-50'
                       : 'border-gray-200 hover:border-gray-300'
                   } disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
@@ -322,7 +322,7 @@ function HomePage() {
                   key={choice}
                   onClick={() => handleEvidenceSubmit(choice)}
                   disabled={loading}
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 text-left transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-sky-500 hover:bg-sky-50 text-left transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <div className="font-medium">{choice}</div>
                 </button>

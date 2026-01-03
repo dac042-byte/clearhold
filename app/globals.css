@@ -23,7 +23,7 @@ body {
 }
 
 .btn-primary {
-  @apply bg-blue-600 text-white hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed;
+  @apply bg-sky-500 text-white hover:bg-sky-600 disabled:bg-sky-300 disabled:cursor-not-allowed;
 }
 
 .btn-secondary {
@@ -31,7 +31,7 @@ body {
 }
 
 .input {
-  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none;
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none;
 }
 
 .card {

@@ -157,7 +157,7 @@ function SubscribePage() {
                 </p>
               </div>
 
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-6">
+              <div className="bg-sky-50 border-2 border-sky-200 rounded-lg p-6 mb-6">
                 <div className="flex items-baseline justify-center mb-4">
                   <span className="text-5xl font-bold">$1</span>
                   <span className="text-gray-600 ml-2">/month</span>
