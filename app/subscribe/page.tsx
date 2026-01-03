@@ -99,9 +99,9 @@ function SubscribePage() {
   const isSubscribed = profile?.subscription_status === 'active'
 
   return (
-    <div className="min-h-screen bg-sky-50">
+    <div className="min-h-screen bg-[#C4E1E6]">
       {/* Header */}
-      <header className="bg-sky-100 shadow-sm">
+      <header className="bg-[#A4CCD9] shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <div
             onClick={() => router.push('/')}
@@ -157,7 +157,7 @@ function SubscribePage() {
                 </p>
               </div>
 
-              <div className="bg-sky-50 border-2 border-sky-200 rounded-lg p-6 mb-6">
+              <div className="bg-[#C4E1E6] border-2 border-[#C4E1E6] rounded-lg p-6 mb-6">
                 <div className="flex items-baseline justify-center mb-4">
                   <span className="text-5xl font-bold">$1</span>
                   <span className="text-gray-600 ml-2">/month</span>
