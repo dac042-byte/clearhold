@@ -212,6 +212,21 @@ function HomePage() {
         </div>
       </header>
 
+      {/* Crisis Support Banner */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-4xl mx-auto px-4 py-2">
+          <div className="flex items-center justify-center gap-2 text-xs text-gray-600">
+            <span>National Suicide Hotline:</span>
+            <a
+              href="tel:988"
+              className="text-[#4DB8C4] hover:text-[#3A8F99] font-medium"
+            >
+              988
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8">
         {/* Input Step */}
