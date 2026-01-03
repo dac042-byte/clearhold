@@ -4,12 +4,12 @@
 
 :root {
   --foreground-rgb: 30, 41, 59;
-  --background-start-rgb: 196, 225, 230;
-  --background-end-rgb: 164, 204, 217;
-  --primary-blue: 141, 188, 199;
-  --light-blue: 164, 204, 217;
-  --lighter-blue: 196, 225, 230;
-  --accent-green: 235, 255, 216;
+  --background-start-rgb: 197, 245, 240;
+  --background-end-rgb: 146, 229, 245;
+  --lightest-cyan: 197, 245, 240;
+  --light-cyan: 146, 229, 245;
+  --medium-blue: 88, 176, 232;
+  --purple-accent: 117, 112, 216;
 }
 
 body {
@@ -27,30 +27,29 @@ body {
 }
 
 .btn-primary {
-  background-color: rgb(141, 188, 199);
-  @apply text-gray-800 font-medium hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-lg transition-all duration-200;
+  background-color: rgb(117, 112, 216);
+  @apply text-white font-medium hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-lg transition-all duration-200;
 }
 
 .btn-secondary {
-  background-color: rgb(235, 255, 216);
+  background-color: rgb(146, 229, 245);
   @apply text-gray-800 font-medium hover:opacity-90 px-4 py-2 rounded-lg transition-all duration-200;
 }
 
 .input {
-  background-color: rgb(196, 225, 230);
-  border-color: rgb(141, 188, 199);
+  background-color: rgb(197, 245, 240);
+  border-color: rgb(88, 176, 232);
   @apply w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-opacity-50 outline-none;
-  focus-ring-color: rgb(141, 188, 199);
 }
 
 .input:focus {
-  ring-color: rgb(141, 188, 199);
+  border-color: rgb(117, 112, 216);
   background-color: white;
 }
 
 .card {
   @apply bg-white rounded-lg shadow-md p-6;
-  border: 2px solid rgb(196, 225, 230);
+  border: 2px solid rgb(146, 229, 245);
 }
 
 .label {
