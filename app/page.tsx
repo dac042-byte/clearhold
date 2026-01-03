@@ -176,7 +176,12 @@ function HomePage() {
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Clearhold</h1>
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">C</span>
+            </div>
+            <h1 className="text-2xl font-bold text-gray-900">Clearhold</h1>
+          </div>
           <div className="flex items-center gap-4">
             <div className="text-sm text-gray-600">
               {profile?.subscription_status === 'active' ? (
