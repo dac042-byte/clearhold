@@ -102,23 +102,23 @@ function SubscribePage() {
     <div className="min-h-screen bg-[#E0F7F9]">
       {/* Header */}
       <header className="bg-[#B4E6EB] shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
           <div
             onClick={() => router.push('/')}
-            className="flex items-center gap-3 cursor-pointer"
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer"
           >
             <img
               src="/favicon.ico"
               alt="Clearhold logo"
-              className="w-8 h-8"
+              className="w-6 h-6 sm:w-8 sm:h-8"
             />
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-lg sm:text-2xl font-bold text-gray-900">
               Clearhold
             </h1>
           </div>
           <button
             onClick={signOut}
-            className="text-sm text-gray-600 hover:text-gray-900"
+            className="text-xs sm:text-sm text-gray-600 hover:text-gray-900"
           >
             Sign out
           </button>

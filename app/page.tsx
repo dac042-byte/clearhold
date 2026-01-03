@@ -175,39 +175,45 @@ function HomePage() {
     <div className="min-h-screen bg-[#E0F7F9]">
       {/* Header */}
       <header className="bg-[#B4E6EB] shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <img
-              src="/favicon.ico"
-              alt="Clearhold logo"
-              className="w-8 h-8"
-            />
-            <h1 className="text-2xl font-bold text-gray-900">Clearhold</h1>
+        <div className="max-w-4xl mx-auto px-4 py-3">
+          {/* Top row: Logo and Sign out */}
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <img
+                src="/favicon.ico"
+                alt="Clearhold logo"
+                className="w-6 h-6 sm:w-8 sm:h-8"
+              />
+              <h1 className="text-lg sm:text-2xl font-bold text-gray-900">Clearhold</h1>
+            </div>
+            <button
+              onClick={signOut}
+              className="text-xs sm:text-sm text-gray-600 hover:text-gray-900"
+            >
+              Sign out
+            </button>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="text-sm text-gray-600">
+
+          {/* Bottom row: Usage and Upgrade */}
+          <div className="flex justify-between items-center mt-2 sm:mt-0 sm:justify-end sm:gap-4">
+            <div className="text-xs sm:text-sm text-gray-600">
               {profile?.subscription_status === 'active' ? (
                 <span className="text-green-600 font-medium">Pro Member</span>
               ) : (
                 <span>
-                  Daily uses: <span className="font-medium">{getRemainingUses()}/5</span>
+                  <span className="hidden sm:inline">Daily uses: </span>
+                  <span className="font-medium">{getRemainingUses()}/5</span>
                 </span>
               )}
             </div>
             {profile?.subscription_status !== 'active' && (
               <Link
                 href="/subscribe"
-                className="text-sm bg-[#4DB8C4] text-white px-3 py-1.5 rounded-lg hover:opacity-90"
+                className="text-xs sm:text-sm bg-[#4DB8C4] text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg hover:opacity-90"
               >
                 Upgrade
               </Link>
             )}
-            <button
-              onClick={signOut}
-              className="text-sm text-gray-600 hover:text-gray-900"
-            >
-              Sign out
-            </button>
           </div>
         </div>
       </header>
