@@ -222,7 +222,7 @@ function HomePage() {
         {/* Input Step */}
         {step === 'input' && (
           <div className="card-glass">
-            <h2 className="text-3xl font-semibold mb-2 tracking-tight">What thought is looping?</h2>
+            <h2 className="text-3xl font-semibold mb-2 tracking-tight">What thought is on your mind?</h2>
             <p className="text-xs mb-6" style={{ color: 'rgba(142, 142, 147, 1)' }}>
               Crisis support:{' '}
               <a href="tel:988" className="text-[#4DB8C4] hover:text-[#3A8F99] font-semibold">
