@@ -174,7 +174,7 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-[#E0F7F9]">
       {/* Header */}
-      <header className="bg-[#B4E6EB] shadow-sm">
+      <header className="bg-gradient-to-r from-[#B4E6EB] to-[#C4E1E6] shadow-lg backdrop-blur-sm border-b-2 border-white/50">
         <div className="max-w-4xl mx-auto px-4 py-3">
           {/* Top row: Logo and Sign out */}
           <div className="flex justify-between items-center">
@@ -260,10 +260,10 @@ function HomePage() {
                 <button
                   key={type}
                   onClick={() => handleClassification(type)}
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#4DB8C4] hover:bg-[#E0F7F9] text-left transition-colors"
+                  className="w-full p-5 border-2 border-[#B4E6EB] rounded-xl hover:border-[#4DB8C4] hover:bg-gradient-to-r hover:from-[#E0F7F9] hover:to-white text-left transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
                 >
-                  <div className="font-medium">{type}</div>
-                  <div className="text-sm text-gray-600 mt-1">
+                  <div className="font-semibold text-lg text-gray-800">{type}</div>
+                  <div className="text-sm text-gray-600 mt-2">
                     {type === 'Fact' && 'Something objectively verifiable'}
                     {type === 'Thought' && 'An interpretation or belief'}
                     {type === 'Prediction' && 'A forecast about the future'}
@@ -294,13 +294,13 @@ function HomePage() {
                     selectedDistortions.length >= 2 &&
                     !selectedDistortions.includes(distortion)
                   }
-                  className={`p-3 border-2 rounded-lg text-left transition-colors ${
+                  className={`p-4 border-2 rounded-xl text-left transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 ${
                     selectedDistortions.includes(distortion)
-                      ? 'border-[#4DB8C4] bg-[#E0F7F9]'
-                      : 'border-gray-200 hover:border-gray-300'
-                  } disabled:opacity-50 disabled:cursor-not-allowed`}
+                      ? 'border-[#4DB8C4] bg-gradient-to-br from-[#E0F7F9] to-[#B4E6EB] shadow-md'
+                      : 'border-[#B4E6EB] bg-white hover:border-[#4DB8C4] hover:bg-gradient-to-br hover:from-white hover:to-[#E0F7F9]'
+                  } disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none`}
                 >
-                  <div className="font-medium text-sm">{distortion}</div>
+                  <div className="font-semibold text-sm text-gray-800">{distortion}</div>
                 </button>
               ))}
             </div>
@@ -335,9 +335,9 @@ function HomePage() {
                   key={choice}
                   onClick={() => handleEvidenceSubmit(choice)}
                   disabled={loading}
-                  className="w-full p-4 border-2 border-gray-200 rounded-lg hover:border-[#4DB8C4] hover:bg-[#E0F7F9] text-left transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full p-5 border-2 border-[#B4E6EB] rounded-xl hover:border-[#4DB8C4] hover:bg-gradient-to-r hover:from-[#E0F7F9] hover:to-white text-left transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  <div className="font-medium">{choice}</div>
+                  <div className="font-semibold text-lg text-gray-800">{choice}</div>
                 </button>
               ))}
             </div>
@@ -452,10 +452,10 @@ function HomePage() {
 
       {/* Usage Limit Modal */}
       {showLimitModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-md w-full p-6">
-            <h3 className="text-xl font-semibold mb-4">Daily limit reached</h3>
-            <p className="text-gray-700 mb-6">
+        <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fadeIn">
+          <div className="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl border-2 border-[#B4E6EB] transform animate-slideUp">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Daily limit reached</h3>
+            <p className="text-gray-700 mb-6 leading-relaxed">
               You've used your 5 free sessions for today. Subscribe for just $1/month to
               get unlimited daily access and continue your journey toward clearer thinking.
             </p>
