@@ -174,7 +174,9 @@ function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-xl border-b border-black/5">
+      <header className="bg-white/35 backdrop-blur-2xl border-b border-white/30" style={{
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(255, 255, 255, 0.5) inset'
+      }}>
         <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
