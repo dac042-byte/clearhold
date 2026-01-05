@@ -11,14 +11,14 @@ type Classification = 'Fact' | 'Thought' | 'Prediction' | null
 type EvidenceChoice = 'Yes' | 'No' | 'Unclear' | null
 
 const DISTORTIONS = [
-  'Catastrophizing',
-  'Mind reading',
-  'All-or-nothing',
-  'Emotional reasoning',
-  'Should statements',
-  'Fortune telling',
-  'Personalization',
-  'Overgeneralization',
+  'Expecting the worst',
+  'Assuming what others think',
+  'Black-and-white thinking',
+  'Treating feelings as facts',
+  'Harsh "should" statements',
+  'Predicting negative outcomes',
+  'Taking things personally',
+  'One bad thing = always true',
 ]
 
 interface AIResponse {
