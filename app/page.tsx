@@ -215,7 +215,7 @@ function HomePage() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-2xl mx-auto px-6 py-12 min-h-[calc(100vh-120px)] flex items-center justify-center">
+      <main className="max-w-6xl mx-auto px-6 py-12 min-h-[calc(100vh-120px)] flex items-center justify-center">
         <div className="w-full">
         {/* Input Step */}
         {step === 'input' && (
@@ -358,75 +358,83 @@ function HomePage() {
 
         {/* Result Step */}
         {step === 'result' && aiResponse && (
-          <div className="space-y-4">
-            <div className="card">
-              <h3 className="font-semibold text-[17px] mb-3">What this is</h3>
-              <p className="text-[17px] leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>{aiResponse.type}</p>
-            </div>
+          <div className="space-y-6">
+            {/* Main Results Grid - 2 columns */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="card">
+                <h3 className="font-semibold text-[17px] mb-3">What this is</h3>
+                <p className="text-[17px] leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>{aiResponse.type}</p>
+              </div>
 
-            <div className="card">
-              <h3 className="font-semibold text-[17px] mb-3">Likely distortions</h3>
-              <ul className="space-y-2">
-                {aiResponse.distortions.map((distortion, idx) => (
-                  <li key={idx} className="text-[17px] leading-relaxed flex items-start gap-2" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
-                    <span className="text-[#4DB8C4] mt-0.5">•</span>
-                    <span>{distortion}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="card">
+                <h3 className="font-semibold text-[17px] mb-3">Likely distortions</h3>
+                <ul className="space-y-2">
+                  {aiResponse.distortions.map((distortion, idx) => (
+                    <li key={idx} className="text-[17px] leading-relaxed flex items-start gap-2" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
+                      <span className="text-[#4DB8C4] mt-0.5">•</span>
+                      <span>{distortion}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="card">
-              <h3 className="font-semibold text-[17px] mb-3">Assumptions vs facts</h3>
-              <p className="text-[17px] leading-relaxed whitespace-pre-line" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
-                {aiResponse.assumptions_vs_facts}
-              </p>
-            </div>
+              <div className="card">
+                <h3 className="font-semibold text-[17px] mb-3">Assumptions vs facts</h3>
+                <p className="text-[17px] leading-relaxed whitespace-pre-line" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
+                  {aiResponse.assumptions_vs_facts}
+                </p>
+              </div>
 
-            <div className="card">
-              <h3 className="font-semibold text-[17px] mb-3">Grounded reframe</h3>
-              <p className="text-[17px] leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>{aiResponse.grounded_reframe}</p>
-            </div>
-
-            {/* Crisis Support Section */}
-            <div className="card bg-yellow-50/50 border-yellow-200/50">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 mt-1">
-                  <svg
-                    className="w-6 h-6 text-red-500"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <p className="text-[15px] mb-4 leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
-                    If you're experiencing thoughts of self-harm, <strong>please reach out for support</strong>. You deserve care and help.
-                  </p>
-                  <a
-                    href="tel:988"
-                    className="inline-flex items-center gap-2 text-[#4DB8C4] hover:text-[#3A8F99] font-semibold text-[17px]"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <span>988 - Crisis Lifeline</span>
-                  </a>
-                  <p className="text-xs mt-2" style={{ color: 'rgba(142, 142, 147, 1)' }}>Available 24/7 • Free & confidential</p>
-                </div>
+              <div className="card">
+                <h3 className="font-semibold text-[17px] mb-3">Grounded reframe</h3>
+                <p className="text-[17px] leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>{aiResponse.grounded_reframe}</p>
               </div>
             </div>
 
-            <div className="card" style={{ background: 'rgba(0, 0, 0, 0.02)' }}>
-              <p className="text-xs italic text-center" style={{ color: 'rgba(142, 142, 147, 1)' }}>
-                Not medical advice. Not for diagnosis or treatment.
-              </p>
-            </div>
+            {/* Bottom Section - Crisis Support and Actions */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Crisis Support */}
+              <div className="md:col-span-2 card bg-yellow-50/50 border-yellow-200/50">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <svg
+                      className="w-6 h-6 text-red-500"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-[15px] mb-4 leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
+                      If you're experiencing thoughts of self-harm, <strong>please reach out for support</strong>. You deserve care and help.
+                    </p>
+                    <a
+                      href="tel:988"
+                      className="inline-flex items-center gap-2 text-[#4DB8C4] hover:text-[#3A8F99] font-semibold text-[17px]"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      <span>988 - Crisis Lifeline</span>
+                    </a>
+                    <p className="text-xs mt-2" style={{ color: 'rgba(142, 142, 147, 1)' }}>Available 24/7 • Free & confidential</p>
+                  </div>
+                </div>
+              </div>
 
-            <button onClick={resetFlow} className="btn btn-primary w-full mt-2">
-              Examine another thought
-            </button>
+              {/* Disclaimer and Button */}
+              <div className="flex flex-col gap-4">
+                <div className="card flex-1 flex items-center justify-center" style={{ background: 'rgba(0, 0, 0, 0.02)' }}>
+                  <p className="text-xs italic text-center" style={{ color: 'rgba(142, 142, 147, 1)' }}>
+                    Not medical advice. Not for diagnosis or treatment.
+                  </p>
+                </div>
+                <button onClick={resetFlow} className="btn btn-primary w-full">
+                  Examine another thought
+                </button>
+              </div>
+            </div>
           </div>
         )}
         </div>
