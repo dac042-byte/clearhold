@@ -251,7 +251,7 @@ function SubscribePage() {
               <div className="text-center">
                 <button
                   onClick={() => router.push('/')}
-                  className="text-blue-600 hover:text-blue-700 text-[15px] font-semibold transition-colors"
+                  className="text-[#4DB8C4] hover:text-[#3A8F99] text-[15px] font-semibold transition-colors"
                 >
                   Continue with Free (5 per day)
                 </button>

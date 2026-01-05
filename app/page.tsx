@@ -188,7 +188,7 @@ function HomePage() {
             <div className="flex items-center gap-6">
               <div className="text-sm">
                 {profile?.subscription_status === 'active' ? (
-                  <span className="text-blue-600 font-semibold">Pro</span>
+                  <span className="text-[#4DB8C4] font-semibold">Pro</span>
                 ) : (
                   <span className="text-gray-500">
                     {getRemainingUses()}/5
@@ -198,7 +198,7 @@ function HomePage() {
               {profile?.subscription_status !== 'active' && (
                 <Link
                   href="/subscribe"
-                  className="text-sm bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors font-semibold"
+                  className="text-sm bg-[#4DB8C4] text-white px-4 py-2 rounded-full hover:bg-[#3A8F99] transition-colors font-semibold"
                 >
                   Upgrade
                 </Link>
@@ -223,7 +223,7 @@ function HomePage() {
             <h2 className="text-3xl font-semibold mb-2 tracking-tight">What thought is looping?</h2>
             <p className="text-xs mb-6" style={{ color: 'rgba(142, 142, 147, 1)' }}>
               Crisis support:{' '}
-              <a href="tel:988" className="text-blue-600 hover:text-blue-700 font-semibold">
+              <a href="tel:988" className="text-[#4DB8C4] hover:text-[#3A8F99] font-semibold">
                 988
               </a>
             </p>
@@ -256,7 +256,7 @@ function HomePage() {
                 <button
                   key={type}
                   onClick={() => handleClassification(type)}
-                  className="w-full p-5 bg-white border border-black/6 rounded-2xl hover:bg-gray-50/50 hover:border-blue-500/30 text-left transition-all duration-200 active:scale-[0.99]"
+                  className="w-full p-5 bg-white border border-black/6 rounded-2xl hover:bg-[#E0F7F9]/30 hover:border-[#4DB8C4]/30 text-left transition-all duration-200 active:scale-[0.99]"
                   style={{ boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)' }}
                 >
                   <div className="font-semibold text-[17px] mb-1.5">{type}</div>
@@ -293,8 +293,8 @@ function HomePage() {
                   }
                   className={`p-4 rounded-2xl text-left transition-all duration-200 active:scale-[0.98] ${
                     selectedDistortions.includes(distortion)
-                      ? 'bg-blue-600 text-white font-semibold'
-                      : 'bg-white border border-black/6 hover:bg-gray-50/50 hover:border-blue-500/30'
+                      ? 'bg-[#4DB8C4] text-white font-semibold'
+                      : 'bg-white border border-black/6 hover:bg-[#E0F7F9]/30 hover:border-[#4DB8C4]/30'
                   } disabled:opacity-40 disabled:cursor-not-allowed`}
                   style={!selectedDistortions.includes(distortion) ? { boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)' } : {}}
                 >
@@ -333,7 +333,7 @@ function HomePage() {
                   key={choice}
                   onClick={() => handleEvidenceSubmit(choice)}
                   disabled={loading}
-                  className="w-full p-5 bg-white border border-black/6 rounded-2xl hover:bg-gray-50/50 hover:border-blue-500/30 text-left transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.99]"
+                  className="w-full p-5 bg-white border border-black/6 rounded-2xl hover:bg-[#E0F7F9]/30 hover:border-[#4DB8C4]/30 text-left transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.99]"
                   style={{ boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)' }}
                 >
                   <div className="font-semibold text-[17px]">{choice}</div>
@@ -369,7 +369,7 @@ function HomePage() {
               <ul className="space-y-2">
                 {aiResponse.distortions.map((distortion, idx) => (
                   <li key={idx} className="text-[17px] leading-relaxed flex items-start gap-2" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
-                    <span className="text-blue-600 mt-0.5">•</span>
+                    <span className="text-[#4DB8C4] mt-0.5">•</span>
                     <span>{distortion}</span>
                   </li>
                 ))}
@@ -406,7 +406,7 @@ function HomePage() {
                   </p>
                   <a
                     href="tel:988"
-                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-[17px]"
+                    className="inline-flex items-center gap-2 text-[#4DB8C4] hover:text-[#3A8F99] font-semibold text-[17px]"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

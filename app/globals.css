@@ -4,11 +4,11 @@
 
 :root {
   --foreground-rgb: 29, 29, 31;
-  --background-rgb: 247, 247, 247;
-  --primary-teal: 0, 122, 255;
-  --light-teal: 142, 142, 147;
-  --lightest-teal: 242, 242, 247;
-  --yellow-accent: 255, 204, 0;
+  --background-rgb: 224, 247, 249;
+  --primary-teal: 77, 184, 196;
+  --light-teal: 180, 230, 235;
+  --lightest-teal: 224, 247, 249;
+  --yellow-accent: 255, 209, 102;
 }
 
 body {
@@ -30,15 +30,15 @@ body {
 }
 
 .btn-primary {
-  background: rgb(0, 122, 255);
+  background: rgb(77, 184, 196);
   @apply text-white disabled:opacity-40 disabled:cursor-not-allowed px-6 py-3.5 rounded-xl transition-all duration-200;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   font-weight: 600;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: rgb(0, 112, 235);
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
+  background: rgb(58, 143, 153);
+  box-shadow: 0 2px 8px rgba(77, 184, 196, 0.25);
 }
 
 .btn-secondary {
@@ -62,9 +62,9 @@ body {
 }
 
 .input:focus {
-  border-color: rgb(0, 122, 255);
+  border-color: rgb(77, 184, 196);
   background-color: white;
-  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(77, 184, 196, 0.1);
 }
 
 .input::placeholder {
