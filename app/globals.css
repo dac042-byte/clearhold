@@ -24,7 +24,6 @@ body {
     radial-gradient(circle at 10% 90%, rgba(77, 184, 196, 0.4) 0%, transparent 30%),
     linear-gradient(135deg, rgb(224, 247, 249) 0%, rgb(200, 240, 242) 100%);
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
