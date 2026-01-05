@@ -95,7 +95,7 @@ function HomePage() {
 
   const handleDistortionsSubmit = () => {
     if (selectedDistortions.length === 0) {
-      setError('Please select at least 1 cognitive distortion')
+      setError('Please select at least 1 thinking trap')
       return
     }
     setError('')
@@ -282,7 +282,7 @@ function HomePage() {
         {/* Distortions Step */}
         {step === 'distortions' && (
           <div className="card">
-            <h2 className="text-3xl font-semibold mb-2 tracking-tight">Select distortions</h2>
+            <h2 className="text-3xl font-semibold mb-2 tracking-tight">Select thinking traps</h2>
             <p className="text-[15px] mb-8" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>Choose 1-2 that might apply</p>
             <div className="grid grid-cols-2 gap-3">
               {DISTORTIONS.map((distortion) => (
@@ -293,14 +293,14 @@ function HomePage() {
                     selectedDistortions.length >= 2 &&
                     !selectedDistortions.includes(distortion)
                   }
-                  className={`p-4 rounded-2xl text-left transition-all duration-200 active:scale-[0.98] ${
+                  className={`p-4 rounded-2xl text-left transition-all duration-200 active:scale-[0.98] break-words ${
                     selectedDistortions.includes(distortion)
                       ? 'bg-[#4DB8C4] text-white font-semibold'
                       : 'bg-white border border-black/6 hover:bg-[#E0F7F9]/30 hover:border-[#4DB8C4]/30'
                   } disabled:opacity-40 disabled:cursor-not-allowed`}
                   style={!selectedDistortions.includes(distortion) ? { boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)' } : {}}
                 >
-                  <div className="text-[15px] font-semibold">{distortion}</div>
+                  <div className="text-[15px] font-semibold break-words">{distortion}</div>
                 </button>
               ))}
             </div>
@@ -369,12 +369,12 @@ function HomePage() {
               </div>
 
               <div className="card !p-5">
-                <h3 className="font-semibold text-[17px] mb-2">Likely distortions</h3>
+                <h3 className="font-semibold text-[17px] mb-2">Thinking traps identified</h3>
                 <ul className="space-y-1.5">
                   {aiResponse.distortions.map((distortion, idx) => (
-                    <li key={idx} className="text-[15px] leading-relaxed flex items-start gap-2" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
-                      <span className="text-[#4DB8C4] mt-0.5">•</span>
-                      <span>{distortion}</span>
+                    <li key={idx} className="text-[15px] leading-relaxed flex items-start gap-2 break-words" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
+                      <span className="text-[#4DB8C4] mt-0.5 flex-shrink-0">•</span>
+                      <span className="break-words">{distortion}</span>
                     </li>
                   ))}
                 </ul>
