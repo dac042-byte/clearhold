@@ -99,7 +99,7 @@ function SubscribePage() {
   const isSubscribed = profile?.subscription_status === 'active'
 
   return (
-    <div className="min-h-screen bg-[rgb(var(--background-rgb))]">
+    <div className="min-h-screen">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-xl border-b border-black/5">
         <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">

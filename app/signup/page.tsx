@@ -41,7 +41,7 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[rgb(var(--background-rgb))] py-12 px-6">
+    <div className="min-h-screen flex items-center justify-center py-12 px-6">
       <div className="max-w-md w-full">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-6">
