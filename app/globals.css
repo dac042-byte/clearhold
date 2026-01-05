@@ -72,25 +72,31 @@ body {
 }
 
 .card {
-  @apply bg-white rounded-3xl p-8;
-  border: 0.5px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  @apply bg-white/70 backdrop-blur-xl rounded-3xl p-8;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
 }
 
 .card-glass {
-  @apply bg-white/60 backdrop-blur-xl rounded-3xl p-8;
-  border: 0.5px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  @apply bg-white/70 backdrop-blur-xl rounded-3xl p-8;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-glass:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
 }
 
 .label {
