@@ -219,7 +219,8 @@ function HomePage() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-8">
+      <main className="max-w-4xl mx-auto px-4 py-8 min-h-[calc(100vh-180px)] flex items-center justify-center">
+        <div className="w-full">
         {/* Input Step */}
         {step === 'input' && (
           <div className="card max-w-2xl mx-auto">
@@ -446,6 +447,7 @@ function HomePage() {
             </button>
           </div>
         )}
+        </div>
       </main>
 
       {/* Usage Limit Modal */}
