@@ -99,28 +99,28 @@ function SubscribePage() {
   const isSubscribed = profile?.subscription_status === 'active'
 
   return (
-    <div className="min-h-screen bg-[#E0F7F9]">
+    <div className="min-h-screen bg-[rgb(var(--background-rgb))]">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#B4E6EB] to-[#C4E1E6] shadow-lg backdrop-blur-sm border-b-2 border-white/50">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+      <header className="bg-white/80 backdrop-blur-xl border-b border-black/5">
+        <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
           <div
             onClick={() => router.push('/')}
-            className="flex items-center gap-2 sm:gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+            className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
           >
             <img
               src="/favicon.ico"
               alt="Clearhold logo"
-              className="w-6 h-6 sm:w-8 sm:h-8"
+              className="w-8 h-8"
             />
-            <h1 className="text-lg sm:text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-semibold tracking-tight">
               Clearhold
             </h1>
           </div>
           <button
             onClick={signOut}
-            className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
           >
-            Sign out
+            Sign Out
           </button>
         </div>
       </header>
@@ -128,40 +128,40 @@ function SubscribePage() {
       {/* Main Content */}
       <main className="max-w-2xl mx-auto px-4 py-12">
         {canceled && (
-          <div className="mb-6 bg-gradient-to-r from-[#FFF9E6] to-[#FFFCF0] border-2 border-[#FFD166] text-gray-800 px-6 py-4 rounded-xl shadow-lg">
-            <p className="font-semibold">Checkout was canceled. You can try again anytime.</p>
+          <div className="mb-6 bg-yellow-50 border border-yellow-200 text-gray-800 px-6 py-4 rounded-2xl">
+            <p className="text-[15px] font-semibold">Checkout was canceled. You can try again anytime.</p>
           </div>
         )}
 
         <div className="card">
           {isSubscribed ? (
             <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold mb-3 text-gray-900">You're a Pro member</h2>
-              <p className="text-gray-600 mb-8 text-lg">
+              <h2 className="text-3xl font-semibold mb-3 tracking-tight">You're a Pro member</h2>
+              <p className="text-[17px] mb-8" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>
                 You have unlimited access to thought interrogations
               </p>
               <button
                 onClick={() => router.push('/')}
                 className="btn btn-primary"
               >
-                Return to home
+                Return to Home
               </button>
             </div>
           ) : (
             <>
-              <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold mb-3 bg-gradient-to-r from-[#4DB8C4] to-[#5BC6D2] bg-clip-text text-transparent">Upgrade to Pro</h2>
-                <p className="text-gray-600 text-lg">
+              <div className="text-center mb-10">
+                <h2 className="text-3xl font-semibold mb-3 tracking-tight">Upgrade to Pro</h2>
+                <p className="text-[17px]" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>
                   Get unlimited access to thought interrogations
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-[#E0F7F9] to-white border-2 border-[#B4E6EB] rounded-2xl p-8 mb-6 shadow-xl">
+              <div className="bg-white border border-black/6 rounded-3xl p-8 mb-6" style={{ boxShadow: '0 2px 16px rgba(0, 0, 0, 0.06)' }}>
                 <div className="flex items-baseline justify-center mb-4">
                   <span className="text-5xl font-bold">$1</span>
                   <span className="text-gray-600 ml-2">/month</span>
@@ -251,9 +251,9 @@ function SubscribePage() {
               <div className="text-center">
                 <button
                   onClick={() => router.push('/')}
-                  className="text-gray-600 hover:text-[#4DB8C4] text-sm font-medium transition-colors"
+                  className="text-blue-600 hover:text-blue-700 text-[15px] font-semibold transition-colors"
                 >
-                  Continue with free plan (5 per day)
+                  Continue with Free (5 per day)
                 </button>
               </div>
             </>

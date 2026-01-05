@@ -172,78 +172,74 @@ function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#E0F7F9]">
+    <div className="min-h-screen bg-[rgb(var(--background-rgb))]">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#B4E6EB] to-[#C4E1E6] shadow-lg backdrop-blur-sm border-b-2 border-white/50">
-        <div className="max-w-4xl mx-auto px-4 py-3">
-          {/* Top row: Logo and Sign out */}
+      <header className="bg-white/80 backdrop-blur-xl border-b border-black/5">
+        <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-3">
               <img
                 src="/favicon.ico"
                 alt="Clearhold logo"
-                className="w-6 h-6 sm:w-8 sm:h-8"
+                className="w-8 h-8"
               />
-              <h1 className="text-lg sm:text-2xl font-bold text-gray-900">Clearhold</h1>
+              <h1 className="text-2xl font-semibold tracking-tight">Clearhold</h1>
             </div>
-            <button
-              onClick={signOut}
-              className="text-xs sm:text-sm text-gray-600 hover:text-gray-900"
-            >
-              Sign out
-            </button>
-          </div>
-
-          {/* Bottom row: Usage and Upgrade */}
-          <div className="flex justify-between items-center mt-2 sm:mt-0 sm:justify-end sm:gap-4">
-            <div className="text-xs sm:text-sm text-gray-600">
-              {profile?.subscription_status === 'active' ? (
-                <span className="text-green-600 font-medium">Pro Member</span>
-              ) : (
-                <span>
-                  <span className="hidden sm:inline">Daily uses: </span>
-                  <span className="font-medium">{getRemainingUses()}/5</span>
-                </span>
+            <div className="flex items-center gap-6">
+              <div className="text-sm">
+                {profile?.subscription_status === 'active' ? (
+                  <span className="text-blue-600 font-semibold">Pro</span>
+                ) : (
+                  <span className="text-gray-500">
+                    {getRemainingUses()}/5
+                  </span>
+                )}
+              </div>
+              {profile?.subscription_status !== 'active' && (
+                <Link
+                  href="/subscribe"
+                  className="text-sm bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors font-semibold"
+                >
+                  Upgrade
+                </Link>
               )}
-            </div>
-            {profile?.subscription_status !== 'active' && (
-              <Link
-                href="/subscribe"
-                className="text-xs sm:text-sm bg-[#4DB8C4] text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg hover:opacity-90"
+              <button
+                onClick={signOut}
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
               >
-                Upgrade
-              </Link>
-            )}
+                Sign Out
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-8 min-h-[calc(100vh-180px)] flex items-center justify-center">
+      <main className="max-w-2xl mx-auto px-6 py-12 min-h-[calc(100vh-120px)] flex items-center justify-center">
         <div className="w-full">
         {/* Input Step */}
         {step === 'input' && (
-          <div className="card max-w-2xl mx-auto">
-            <h2 className="text-xl font-semibold mb-2">What thought is looping?</h2>
-            <p className="text-xs text-gray-500 mb-4">
-              National Suicide Hotline:{' '}
-              <a href="tel:988" className="text-[#4DB8C4] hover:text-[#3A8F99] font-medium">
+          <div className="card">
+            <h2 className="text-3xl font-semibold mb-2 tracking-tight">What thought is looping?</h2>
+            <p className="text-xs mb-6" style={{ color: 'rgba(142, 142, 147, 1)' }}>
+              Crisis support:{' '}
+              <a href="tel:988" className="text-blue-600 hover:text-blue-700 font-semibold">
                 988
               </a>
             </p>
-            <p className="text-gray-600 mb-6">
+            <p className="text-[17px] mb-8" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>
               Enter the thought you'd like to examine with clarity
             </p>
             <textarea
-              className="input min-h-[120px] resize-none"
-              placeholder="E.g., 'Everyone at work thinks I'm incompetent' or 'I'll never find a relationship'"
+              className="input min-h-[140px] resize-none"
+              placeholder="E.g., 'Everyone at work thinks I'm incompetent'"
               value={thought}
               onChange={(e) => setThought(e.target.value)}
             />
-            {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
+            {error && <p className="text-red-600 text-sm mt-3">{error}</p>}
             <button
               onClick={handleInputSubmit}
-              className="btn btn-primary w-full mt-4"
+              className="btn btn-primary w-full mt-6"
             >
               Continue
             </button>
@@ -252,18 +248,19 @@ function HomePage() {
 
         {/* Classification Step */}
         {step === 'classify' && (
-          <div className="card max-w-2xl mx-auto">
-            <h2 className="text-xl font-semibold mb-4">Step A: What type is this?</h2>
-            <p className="text-gray-600 mb-6">Choose the category that best fits</p>
+          <div className="card">
+            <h2 className="text-3xl font-semibold mb-2 tracking-tight">What type is this?</h2>
+            <p className="text-[15px] mb-8" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>Choose the category that best fits</p>
             <div className="space-y-3">
               {(['Fact', 'Thought', 'Prediction'] as Classification[]).map((type) => (
                 <button
                   key={type}
                   onClick={() => handleClassification(type)}
-                  className="w-full p-5 border-2 border-[#B4E6EB] rounded-xl hover:border-[#4DB8C4] hover:bg-gradient-to-r hover:from-[#E0F7F9] hover:to-white text-left transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                  className="w-full p-5 bg-white border border-black/6 rounded-2xl hover:bg-gray-50/50 hover:border-blue-500/30 text-left transition-all duration-200 active:scale-[0.99]"
+                  style={{ boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)' }}
                 >
-                  <div className="font-semibold text-lg text-gray-800">{type}</div>
-                  <div className="text-sm text-gray-600 mt-2">
+                  <div className="font-semibold text-[17px] mb-1.5">{type}</div>
+                  <div className="text-[15px]" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>
                     {type === 'Fact' && 'Something objectively verifiable'}
                     {type === 'Thought' && 'An interpretation or belief'}
                     {type === 'Prediction' && 'A forecast about the future'}
@@ -273,7 +270,7 @@ function HomePage() {
             </div>
             <button
               onClick={() => setStep('input')}
-              className="btn btn-secondary w-full mt-4"
+              className="btn btn-secondary w-full mt-6"
             >
               Back
             </button>
@@ -282,9 +279,9 @@ function HomePage() {
 
         {/* Distortions Step */}
         {step === 'distortions' && (
-          <div className="card max-w-2xl mx-auto">
-            <h2 className="text-xl font-semibold mb-4">Step B: Select distortions</h2>
-            <p className="text-gray-600 mb-6">Choose 1-2 that might apply</p>
+          <div className="card">
+            <h2 className="text-3xl font-semibold mb-2 tracking-tight">Select distortions</h2>
+            <p className="text-[15px] mb-8" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>Choose 1-2 that might apply</p>
             <div className="grid grid-cols-2 gap-3">
               {DISTORTIONS.map((distortion) => (
                 <button
@@ -294,18 +291,19 @@ function HomePage() {
                     selectedDistortions.length >= 2 &&
                     !selectedDistortions.includes(distortion)
                   }
-                  className={`p-4 border-2 rounded-xl text-left transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 ${
+                  className={`p-4 rounded-2xl text-left transition-all duration-200 active:scale-[0.98] ${
                     selectedDistortions.includes(distortion)
-                      ? 'border-[#4DB8C4] bg-gradient-to-br from-[#E0F7F9] to-[#B4E6EB] shadow-md'
-                      : 'border-[#B4E6EB] bg-white hover:border-[#4DB8C4] hover:bg-gradient-to-br hover:from-white hover:to-[#E0F7F9]'
-                  } disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none`}
+                      ? 'bg-blue-600 text-white font-semibold'
+                      : 'bg-white border border-black/6 hover:bg-gray-50/50 hover:border-blue-500/30'
+                  } disabled:opacity-40 disabled:cursor-not-allowed`}
+                  style={!selectedDistortions.includes(distortion) ? { boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)' } : {}}
                 >
-                  <div className="font-semibold text-sm text-gray-800">{distortion}</div>
+                  <div className="text-[15px] font-semibold">{distortion}</div>
                 </button>
               ))}
             </div>
             {error && <p className="text-red-600 text-sm mt-4">{error}</p>}
-            <div className="flex gap-3 mt-6">
+            <div className="flex gap-3 mt-8">
               <button
                 onClick={() => setStep('classify')}
                 className="btn btn-secondary flex-1"
@@ -324,9 +322,9 @@ function HomePage() {
 
         {/* Evidence Step */}
         {step === 'evidence' && (
-          <div className="card max-w-2xl mx-auto">
-            <h2 className="text-xl font-semibold mb-4">Step C: Evidence check</h2>
-            <p className="text-gray-600 mb-6">
+          <div className="card">
+            <h2 className="text-3xl font-semibold mb-2 tracking-tight">Evidence check</h2>
+            <p className="text-[17px] mb-8" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>
               Is there direct evidence this is objectively true?
             </p>
             <div className="space-y-3">
@@ -335,22 +333,23 @@ function HomePage() {
                   key={choice}
                   onClick={() => handleEvidenceSubmit(choice)}
                   disabled={loading}
-                  className="w-full p-5 border-2 border-[#B4E6EB] rounded-xl hover:border-[#4DB8C4] hover:bg-gradient-to-r hover:from-[#E0F7F9] hover:to-white text-left transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full p-5 bg-white border border-black/6 rounded-2xl hover:bg-gray-50/50 hover:border-blue-500/30 text-left transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.99]"
+                  style={{ boxShadow: '0 1px 4px rgba(0, 0, 0, 0.04)' }}
                 >
-                  <div className="font-semibold text-lg text-gray-800">{choice}</div>
+                  <div className="font-semibold text-[17px]">{choice}</div>
                 </button>
               ))}
             </div>
             {error && <p className="text-red-600 text-sm mt-4">{error}</p>}
             {loading && (
-              <div className="text-center mt-4 text-gray-600">
+              <div className="text-center mt-6" style={{ color: 'rgba(60, 60, 67, 0.6)' }}>
                 Processing your reflection...
               </div>
             )}
             <button
               onClick={() => setStep('distortions')}
               disabled={loading}
-              className="btn btn-secondary w-full mt-4"
+              className="btn btn-secondary w-full mt-6"
             >
               Back
             </button>
@@ -359,90 +358,73 @@ function HomePage() {
 
         {/* Result Step */}
         {step === 'result' && aiResponse && (
-          <div className="space-y-6">
+          <div className="space-y-4">
             <div className="card">
-              <h3 className="font-semibold text-gray-900 mb-2">What this is</h3>
-              <p className="text-gray-700">{aiResponse.type}</p>
+              <h3 className="font-semibold text-[17px] mb-3">What this is</h3>
+              <p className="text-[17px] leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>{aiResponse.type}</p>
             </div>
 
             <div className="card">
-              <h3 className="font-semibold text-gray-900 mb-2">Likely distortions</h3>
-              <ul className="list-disc list-inside space-y-1">
+              <h3 className="font-semibold text-[17px] mb-3">Likely distortions</h3>
+              <ul className="space-y-2">
                 {aiResponse.distortions.map((distortion, idx) => (
-                  <li key={idx} className="text-gray-700">
-                    {distortion}
+                  <li key={idx} className="text-[17px] leading-relaxed flex items-start gap-2" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
+                    <span className="text-blue-600 mt-0.5">•</span>
+                    <span>{distortion}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div className="card">
-              <h3 className="font-semibold text-gray-900 mb-2">Assumptions vs facts</h3>
-              <p className="text-gray-700 whitespace-pre-line">
+              <h3 className="font-semibold text-[17px] mb-3">Assumptions vs facts</h3>
+              <p className="text-[17px] leading-relaxed whitespace-pre-line" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
                 {aiResponse.assumptions_vs_facts}
               </p>
             </div>
 
             <div className="card">
-              <h3 className="font-semibold text-gray-900 mb-2">Grounded reframe</h3>
-              <p className="text-gray-700">{aiResponse.grounded_reframe}</p>
+              <h3 className="font-semibold text-[17px] mb-3">Grounded reframe</h3>
+              <p className="text-[17px] leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>{aiResponse.grounded_reframe}</p>
             </div>
 
             {/* Crisis Support Section */}
-            <div className="card border-2 border-[#FFD166] bg-[#FFFEF5]">
-              <div className="flex items-start gap-3">
+            <div className="card bg-yellow-50/50 border-yellow-200/50">
+              <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 mt-1">
                   <svg
-                    className="w-6 h-6 text-[#4DB8C4]"
-                    fill="none"
-                    stroke="currentColor"
+                    className="w-6 h-6 text-red-500"
+                    fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm text-gray-800 mb-3 leading-relaxed">
-                    If you are feeling suicidal or committing self-harm, <strong>PLEASE</strong> contact this number. Your life and well-being is worth fighting for.
+                  <p className="text-[15px] mb-4 leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
+                    If you're experiencing thoughts of self-harm, <strong>please reach out for support</strong>. You deserve care and help.
                   </p>
-                  <div className="space-y-2">
-                    <a
-                      href="tel:988"
-                      className="flex items-center gap-2 text-[#4DB8C4] hover:text-[#3A8F99] font-semibold text-lg"
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                      <span>988 - Suicide & Crisis Lifeline</span>
-                    </a>
-                    <p className="text-xs text-gray-600">Available 24/7 - Free and confidential support</p>
-                  </div>
+                  <a
+                    href="tel:988"
+                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-[17px]"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>988 - Crisis Lifeline</span>
+                  </a>
+                  <p className="text-xs mt-2" style={{ color: 'rgba(142, 142, 147, 1)' }}>Available 24/7 • Free & confidential</p>
                 </div>
               </div>
             </div>
 
-            <div className="card bg-[#E0F7F9]">
-              <p className="text-xs text-gray-600 italic">
+            <div className="card" style={{ background: 'rgba(0, 0, 0, 0.02)' }}>
+              <p className="text-xs italic text-center" style={{ color: 'rgba(142, 142, 147, 1)' }}>
                 Not medical advice. Not for diagnosis or treatment.
               </p>
             </div>
 
-            <button onClick={resetFlow} className="btn btn-primary w-full">
+            <button onClick={resetFlow} className="btn btn-primary w-full mt-2">
               Examine another thought
             </button>
           </div>
@@ -452,22 +434,22 @@ function HomePage() {
 
       {/* Usage Limit Modal */}
       {showLimitModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fadeIn">
-          <div className="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl border-2 border-[#B4E6EB] transform animate-slideUp">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">Daily limit reached</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              You've used your 5 free sessions for today. Subscribe for just $1/month to
-              get unlimited daily access and continue your journey toward clearer thinking.
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center p-6 z-50 animate-fadeIn">
+          <div className="bg-white rounded-3xl max-w-md w-full p-8 transform animate-slideUp" style={{ boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)' }}>
+            <h3 className="text-2xl font-semibold mb-3 tracking-tight">Daily limit reached</h3>
+            <p className="text-[17px] mb-8 leading-relaxed" style={{ color: 'rgba(60, 60, 67, 0.85)' }}>
+              You've used your 5 free sessions for today. Subscribe for $1/month to
+              get unlimited access and continue your journey toward clearer thinking.
             </p>
             <div className="flex gap-3">
               <button
                 onClick={() => setShowLimitModal(false)}
                 className="btn btn-secondary flex-1"
               >
-                Maybe later
+                Not Now
               </button>
               <Link href="/subscribe" className="btn btn-primary flex-1 text-center">
-                Subscribe now
+                Upgrade
               </Link>
             </div>
           </div>

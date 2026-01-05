@@ -3,78 +3,89 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 30, 41, 59;
-  --background-start-rgb: 224, 247, 249;
-  --background-end-rgb: 180, 230, 235;
-  --primary-teal: 77, 184, 196;
-  --light-teal: 180, 230, 235;
-  --lightest-teal: 224, 247, 249;
-  --yellow-accent: 255, 209, 102;
+  --foreground-rgb: 29, 29, 31;
+  --background-rgb: 247, 247, 247;
+  --primary-teal: 0, 122, 255;
+  --light-teal: 142, 142, 147;
+  --lightest-teal: 242, 242, 247;
+  --yellow-accent: 255, 204, 0;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb))
-    );
+  background: rgb(var(--background-rgb));
   min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .btn {
-  @apply px-4 py-2 rounded-xl font-medium transition-all duration-300 transform;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
+  @apply px-5 py-3 rounded-xl font-semibold transition-all duration-200 transform;
+  letter-spacing: -0.01em;
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, rgb(77, 184, 196), rgb(91, 198, 210));
-  @apply text-white font-semibold shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed px-6 py-3 rounded-xl transition-all duration-300;
+  background: rgb(0, 122, 255);
+  @apply text-white disabled:opacity-40 disabled:cursor-not-allowed px-6 py-3.5 rounded-xl transition-all duration-200;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgb(91, 198, 210), rgb(77, 184, 196));
+  background: rgb(0, 112, 235);
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, rgb(255, 209, 102), rgb(255, 223, 140));
-  @apply text-gray-800 font-semibold shadow-md hover:shadow-lg px-6 py-3 rounded-xl transition-all duration-300;
+  background: rgba(0, 0, 0, 0.03);
+  @apply text-gray-900 px-6 py-3.5 rounded-xl transition-all duration-200;
+  font-weight: 600;
+  border: 0.5px solid rgba(0, 0, 0, 0.06);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .input {
-  background-color: white;
-  border: 2px solid rgb(180, 230, 235);
-  @apply w-full px-4 py-3 rounded-xl focus:ring-4 focus:ring-opacity-30 outline-none transition-all duration-200;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  @apply w-full px-4 py-3.5 rounded-xl outline-none transition-all duration-200;
+  font-size: 17px;
+  line-height: 1.4;
 }
 
 .input:focus {
-  border-color: rgb(77, 184, 196);
+  border-color: rgb(0, 122, 255);
   background-color: white;
-  box-shadow: 0 4px 12px rgba(77, 184, 196, 0.15);
-  ring-color: rgb(77, 184, 196);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.input::placeholder {
+  color: rgba(60, 60, 67, 0.3);
 }
 
 .card {
-  @apply bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-8;
-  border: 2px solid rgb(196, 225, 230);
-  transition: all 0.3s ease;
+  @apply bg-white rounded-3xl p-8;
+  border: 0.5px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(77, 184, 196, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 .label {
-  @apply block text-sm font-semibold text-gray-700 mb-2;
+  @apply block text-sm font-semibold mb-2;
+  color: rgba(60, 60, 67, 0.85);
+  letter-spacing: -0.01em;
 }
 
 @keyframes fadeIn {
