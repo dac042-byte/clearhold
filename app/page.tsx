@@ -5,6 +5,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 type Step = 'input' | 'classify' | 'distortions' | 'evidence' | 'result'
 type Classification = 'Fact' | 'Thought' | 'Prediction' | null
@@ -38,6 +39,7 @@ export default function Home() {
 
 function HomePage() {
   const { user, profile, signOut } = useAuth()
+  const router = useRouter()
   const [step, setStep] = useState<Step>('input')
   const [thought, setThought] = useState('')
   const [classification, setClassification] = useState<Classification>(null)
@@ -122,7 +124,10 @@ function HomePage() {
       } = await supabase.auth.getSession()
 
       if (!session) {
-        throw new Error('Not authenticated')
+        // Session expired or not authenticated - redirect to login
+        await supabase.auth.signOut()
+        router.push('/login')
+        return
       }
 
       const response = await fetch('/api/reflect', {
